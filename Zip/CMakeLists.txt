@@ -14,12 +14,12 @@ endif()
 
 add_library(Zip ${SRCS})
 if (POCO_UNBUNDLED)
-	target_link_libraries(Zip PRIVATE ZLIB::ZLIB)
+	target_link_libraries(Zip PRIVATE ZLIB::ZLIBSTATIC)
 	target_compile_definitions(Zip PUBLIC POCO_UNBUNDLED)
 else()
 	# zlib is already linked with Foundation, we only needs headers.
 	target_include_directories(Zip
-		PRIVATE $<TARGET_PROPERTY:ZLIB::ZLIB,INCLUDE_DIRECTORIES>
+		PRIVATE $<TARGET_PROPERTY:ZLIB::ZLIBSTATIC,INCLUDE_DIRECTORIES>
 	)
 endif()
 

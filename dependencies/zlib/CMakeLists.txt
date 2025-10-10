@@ -2,7 +2,7 @@
 
 if(POCO_UNBUNDLED)
 	find_package(ZLIB REQUIRED)
-	set_target_properties(ZLIB::ZLIB PROPERTIES IMPORTED_GLOBAL TRUE)
+	set_target_properties(ZLIB::ZLIBSTATIC PROPERTIES IMPORTED_GLOBAL TRUE)
 else()
 
 	# Sources
@@ -23,6 +23,6 @@ else()
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
 	)
 
-	add_library(ZLIB::ZLIB ALIAS _BUNDLED_ZLIB)
+	add_library(ZLIB::ZLIBSTATIC ALIAS _BUNDLED_ZLIB)
 endif()
 

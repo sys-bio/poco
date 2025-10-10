@@ -46,7 +46,7 @@ endif(POCO_UNBUNDLED)
 
 add_library(Foundation ${SRCS})
 if (POCO_UNBUNDLED)
-	target_link_libraries(Foundation PRIVATE ZLIB::ZLIB Pcre2::Pcre2 Utf8Proc::Utf8Proc)
+	target_link_libraries(Foundation PRIVATE ZLIB::ZLIBSTATIC Pcre2::Pcre2 Utf8Proc::Utf8Proc)
 	target_include_directories(Foundation PRIVATE ${EMBEDDED_PCRE2_INCLUDE})
 	target_compile_definitions(Foundation PUBLIC POCO_UNBUNDLED)
 else()
@@ -58,7 +58,7 @@ else()
 	target_link_libraries(
 		Foundation
 		PRIVATE
-			"$<BUILD_LOCAL_INTERFACE:ZLIB::ZLIB>"
+			"$<BUILD_LOCAL_INTERFACE:ZLIB::ZLIBSTATIC>"
 			"$<BUILD_LOCAL_INTERFACE:Pcre2::Pcre2>"
 			"$<BUILD_LOCAL_INTERFACE:Utf8Proc::Utf8Proc>"
 	)
