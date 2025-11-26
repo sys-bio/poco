@@ -21,6 +21,8 @@ namespace Poco {
 
 
 SplitterChannel::SplitterChannel()
+  :  _channels()
+  ,  _mutex()
 {
 }
 
