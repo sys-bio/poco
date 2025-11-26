@@ -24,7 +24,7 @@ if (POCO_UNBUNDLED)
 else()
 	target_link_libraries(PDF PRIVATE "$<BUILD_LOCAL_INTERFACE:PNG::PNG>")
 	if (NOT BUILD_SHARED_LIBS OR WIN32)
-		target_link_libraries(PDF PRIVATE "$<BUILD_LOCAL_INTERFACE:ZLIB::ZLIB>")
+		target_link_libraries(PDF PRIVATE "$<BUILD_LOCAL_INTERFACE:ZLIB::ZLIBSTATIC>")
 	endif()
 	# else static zlib is already linked to Foundation
 endif()
