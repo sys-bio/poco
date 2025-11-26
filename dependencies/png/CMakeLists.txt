@@ -32,7 +32,7 @@ else()
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
 	)
 
-	target_link_libraries(_BUNDLED_PNG PRIVATE "$<BUILD_LOCAL_INTERFACE:ZLIB::ZLIB>")
+	target_link_libraries(_BUNDLED_PNG PRIVATE "$<BUILD_LOCAL_INTERFACE:ZLIB::ZLIBSTATIC>")
 
 	add_library(PNG::PNG ALIAS _BUNDLED_PNG)
 endif()
